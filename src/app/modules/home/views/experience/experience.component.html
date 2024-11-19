@@ -1,0 +1,10 @@
+<div>
+  <div class="gap-5 p-4" style="width: 100%; height: 100%; background-color: transparent; display: flex; flex-wrap: wrap; justify-content: center; align-items: center;">
+    @for (job of cardJob; track $index) {
+      <app-cards 
+        [cardJob]="job" 
+        class="app-cards"
+      ></app-cards>
+    }
+  </div>
+</div>

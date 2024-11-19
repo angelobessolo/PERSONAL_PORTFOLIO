@@ -1,0 +1,27 @@
+<!-- ============================================================== -->
+<!-- Bread crumb and right sidebar toggle -->
+<!-- ============================================================== -->
+@if (showBreadCrumb) {
+    <div class="d-flex flex-column">
+        <nav>
+            <ol class="breadcrumb">
+              @for (breadcrumb of breadcrumbs; track $index; let last = $last ) {
+                @if (breadcrumb.label != ''){
+                    <li class="breadcrumb-item">
+                        <mat-icon style="color: #004b04;">{{breadcrumb.icon}}</mat-icon>
+                        @if (!last) {
+                            <a (click)="reRirectPath(breadcrumb.path)">{{ breadcrumb.label }}</a>
+                        }@else {
+                            <span class="breadcrumb-item active">{{ breadcrumb.label }}</span>
+                        }
+                        
+                    </li>
+                }     
+              }
+            </ol>
+        </nav>
+    </div>
+}
+<!-- ============================================================== -->
+<!-- End Bread crumb and right sidebar toggle -->
+<!-- ============================================================== -->

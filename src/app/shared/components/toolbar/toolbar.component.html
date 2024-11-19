@@ -1,0 +1,65 @@
+<mat-toolbar class="toolbar justify-content-between" color="primary" style="padding: 0 40px;">
+  <!-- Sección de logo y nombre -->
+  <div class="d-flex gap-3 justify-content-center align-items-center">
+    <div class="d-flex gap-3 justify-content-center align-items-center">
+      <a routerLink="/home/main" style="width: 45px; height: 45px;">
+        <img src="/assets/images/personal_mark.svg" style="border-radius: 50%; width: 45px; height: 45px;" alt="Logotipo personal">
+      </a>
+      
+      <!-- <a routerLink="/home/main">INICIO</a> -->
+    </div>
+  </div>
+
+  <!-- Redes sociales -->
+  <div class="social-media d-none d-lg-flex d-flex gap-3 justify-content-center align-items-center">
+      <div>
+        <a style="cursor: pointer;" (click)="openPopup('https://github.com/angelobessolo')">
+          <img class="social-github" src="/assets/images/github.png" alt="Github profile">
+        </a>
+        
+      </div>
+
+      <div>
+          <a style="cursor: pointer;" (click)="openPopup('https://www.linkedin.com/in/angelo-mateo-bessolo-%F0%9F%A7%91%E2%80%8D%F0%9F%92%BB-6b02ab247/')">
+              <img class="social-linkedin" src="/assets/images/linkedin.png" alt="Linkedin profile">
+          </a>
+      </div>
+
+      <div>
+          <a style="cursor: pointer;" (click)="openPopup('wa.link/5uwy23')">
+              <img class="social-whatsapp" src="/assets/images/whatsapp.png" alt="whatsapp profile">
+          </a>
+      </div>
+
+      <div>
+          <button mat-button [matMenuTriggerFor]="beforeMenu">
+              <!-- Mostrar la bandera del idioma seleccionado y el nombre -->
+              <img [src]="selectedLanguage.flag" alt="Flag" style="width: 30px; height: 30px; margin-right: 10px;">
+              {{ selectedLanguage.name }}
+          </button>
+            
+          <mat-menu #beforeMenu="matMenu" xPosition="before">
+              @for (language of lenguages; track $index) {     
+                  <button mat-menu-item (click)="changeLanguage(language)">
+                      <img style="width: 30px; height: 30px; margin-right: 10px;" [src]="language.flag" alt="Flag country: {{language.name}}">
+                      <span>{{language.name}}</span>
+                  </button>
+              }
+              
+          </mat-menu>
+      </div>
+  </div>
+
+
+  <!-- Botón de menú para dispositivos pequeños -->
+  <button class="d-lg-none d-flex" mat-icon-button  (click)="toggleSidenav()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <!-- Contenido que se despliega como un "drawer" (offcanvas) solo en pantallas pequeñas -->
+ 
+</mat-toolbar>
+
+
+
+
+

@@ -1,0 +1,29 @@
+/* Definimos la animación 'fadeInZoom' */
+@keyframes fadeInZoom {
+  0% {
+    opacity: 0;              /* Comienza invisible */
+    transform: scale(0.5);   /* Comienza un poco más pequeña */
+  }
+  100% {
+    opacity: 1;              /* Termina completamente visible */
+    transform: scale(1);     /* Se escala a su tamaño original */
+  }
+}
+
+/* Aplica la animación a cada tarjeta */
+.app-cards {
+animation: fadeInZoom 1s ease-out forwards; /* 1 segundo de duración, efecto 'ease-out' */
+opacity: 0; /* Empieza invisible */
+transform: scale(0.5); /* Empieza un poco más pequeña */
+}
+
+/* Si quieres que la animación sea aplicada con retraso para cada tarjeta, 
+ por ejemplo, si las tarjetas están en una lista y quieres que cada una 
+ aparezca en diferentes momentos, puedes hacer lo siguiente */
+.app-cards:nth-child(1) {
+animation-delay: 0.5s; /* Retraso de 0.2 segundos para la primera tarjeta */
+}
+
+.app-cards:nth-child(2) {
+animation-delay: 1s; /* Retraso de 0.4 segundos para la segunda tarjeta */
+}

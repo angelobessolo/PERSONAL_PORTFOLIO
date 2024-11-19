@@ -1,0 +1,31 @@
+nav {
+    margin: 10px 0;
+    padding: 8px;
+    /* background-color: #0b1151c7; */
+    border-radius: 8px;
+}
+
+ol {
+    margin: 0;
+}
+
+.breadcrumb {
+    background: none;
+    padding: 0;
+}
+
+.breadcrumb-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.breadcrumb-item a {
+    text-decoration: none;
+    color: white;
+}
+
+li a {
+    cursor: pointer;
+}
+  

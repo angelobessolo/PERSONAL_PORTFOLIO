@@ -1,0 +1,65 @@
+<div class="starfield1" style="min-height: 100vh; width: 100vw;">
+
+  <mat-drawer-container hasBackdrop="true" style="height: 100vh; background-color: rgb(12 22 51);">
+    <mat-drawer class="drawer-container" #drawer mode="over" style="scrollbar-width: none !important; overflow: hidden; width: 100%; max-width: 280px; padding: 10px; background-color: rgb(12 22 51);">
+      <div class="d-flex flex-column gap-2" style="width: 100%; height: 100vh; background-color: rgb(12 22 51);">
+        <div class="d-flex align-items-center justify-content-between text-center">
+          <h5 class="m-0 text-light">Redes Sociales</h5>
+          <button class="text-light" mat-icon-button (click)="openCloseSidenav(true)">
+            <mat-icon >close</mat-icon>
+          </button>
+        </div>
+
+        <div class="d-flex flex-column gap-2">
+          <a href="https://github.com/angelobessolo" target="_blank" style="text-decoration: none; color: white;">
+            <img class="social-icon" src="/assets/images/github.png" alt="GitHub" style="width: 30px; height: 30px; margin-right: 10px;">
+            Github
+          </a>
+
+          <a href="https://www.linkedin.com/in/angelo-mateo-bessolo-%F0%9F%A7%91%E2%80%8D%F0%9F%92%BB-6b02ab247/" target="_blank"  style="text-decoration: none; color: white;">
+            <img class="social-icon" src="/assets/images/linkedin.png" alt="LinkedIn" style="width: 30px; height: 30px; margin-right: 10px;">
+            Linkedin
+          </a>
+          
+          <div>
+            <a href="https://wa.link/5uwy23" target="_blank"  style="text-decoration: none; color: white;">
+              <img class="social-icon" src="/assets/images/whatsapp.png" alt="WhatsApp" style="width: 30px; height: 30px; margin-right: 10px;">
+              Whatsapp
+            </a>
+          </div>
+          
+          <!-- <li>
+            <button mat-icon-button [matMenuTriggerFor]="beforeMenu">
+              
+              <img [src]="selectedLanguage.flag" alt="Flag" style="width: 30px; height: 30px; margin-right: 10px;">
+              {{ selectedLanguage.name }}
+            </button>
+              
+            <mat-menu #beforeMenu="matMenu" xPosition="before">
+              @for (language of lenguages; track $index) {     
+                  <button mat-menu-item (click)="changeLanguage(language)">
+                      <img style="width: 30px; height: 30px; margin-right: 10px;" [src]="language.flag" alt="Flag country: {{language.name}}">
+                      <span>{{language.name}}</span>
+                  </button>
+              }    
+            </mat-menu>
+          </li> -->
+        </div>   
+        
+      </div>
+    </mat-drawer>
+
+    <mat-drawer-content>
+      <div>
+        <app-toolbar (openCloseSidenav)="openCloseSidenav($event)"></app-toolbar>
+        <app-bread-crumb></app-bread-crumb>
+      </div>
+    
+      <div>
+        <router-outlet></router-outlet>
+      </div>
+
+    </mat-drawer-content>
+  </mat-drawer-container>
+  
+</div>

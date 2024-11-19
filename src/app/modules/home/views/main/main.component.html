@@ -1,0 +1,31 @@
+<!-- @for (star of stars; track $index) {
+  <div 
+  class="star"
+  [style.left]="star.left"
+  [style.animationDelay]="star.animationDelay"
+  [style.width]="star.size"
+  [style.height]="star.size"
+  [class.star-falling]="true">
+  </div>
+} -->
+
+<div class="container-fluid main" style="height: 90vh;">
+  <div class="row align-items-center" style="justify-content: center; align-content: center; height: 100%;">
+    <div class="col-12 col-md-6">
+      <section class="intro-container intro-animated">
+          <h1 class="animate-charcter">¡Hola! Soy Angelo Bessolo</h1>
+          <p style="color: white;">Acompáñame y conoce un poco acerca de mí.</p>
+          <div class="d-flex gap-2 flex-wrap">
+            <a routerLink="/home/experience" routerLinkActive="router-link-active"  class="btn-next gap-2">Acerca de mi<mat-icon>arrow_forward</mat-icon></a>
+            <a routerLink="/home/projects" routerLinkActive="router-link-active"  class="btn-next gap-2">Proyectos<mat-icon>arrow_forward</mat-icon></a>
+            <a routerLink="/home/experience" routerLinkActive="router-link-active"  class="btn-next gap-2">Experiencia<mat-icon>arrow_forward</mat-icon></a>
+          </div>
+        </section>
+    </div>
+
+    <div class="clip">
+      <!-- <img src="/assets/images/home_profile.svg" alt="" class="clip-svg"> -->
+    </div>
+    
+  </div>
+</div>

@@ -1,0 +1,196 @@
+.example-headers-align .mat-expansion-panel-header-description {
+    justify-content: space-between;
+    align-items: center;
+}
+  
+.example-headers-align .mat-mdc-form-field + .mat-mdc-form-field {
+    margin-left: 8px;
+}
+
+/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.flip-card {
+    /* background-color: white; */
+    width: 420px;
+    height: 600px;
+    /* border: 1px solid #f1f1f1; */
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+  
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    }
+  
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+  
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+    /* position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;  
+    backface-visibility: hidden; */
+}
+  
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+    background-color: #ebf7ee;
+}
+  
+/* Style the back side */
+.flip-card-back {
+    padding: 1rem;
+    background-color: #ebf7ee;
+    transform: rotateY(180deg);
+}
+
+.container-img-card{
+    height: 200px;
+    width: 200px;
+    /* background-image: url('/assets/images/home_profile.svg'); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    border-radius: 50%;
+    top: 96px;
+    left: 110px;
+}
+
+.container-img-skill-card{
+    height: 200px;  
+    /* background-image: url('/assets/images/cobol.jpg');  */
+    /* background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center; */
+}
+
+/* Position the front and back side */
+.flip-card-front {
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+    -webkit-box-shadow: 5px 5px 25px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 5px 5px 25px 0px rgba(0,0,0,0.75);
+    box-shadow: 5px 5px 25px 0px rgba(0,0,0,0.75);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.tag {   
+    /* margin-left: 16px; */
+    display: inline-block;
+    height: 24px;
+    line-height: 24px;
+    position: relative;
+    padding: 0 10px 0 12px;
+    /* background: #7304f2;     */
+    -webkit-border-bottom-right-radius: 3px;    
+    border-bottom-right-radius: 3px;
+    -webkit-border-top-right-radius: 3px;    
+    border-top-right-radius: 3px;
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    color: #fff;
+    font-size: 12px;
+    font-family: "Lucida Grande","Lucida Sans Unicode",Verdana,sans-serif;
+    text-decoration: none;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    font-weight: bold;
+}
+   
+.tag a:before {
+    content: "";
+    position: absolute;
+    top:0;
+    left: -12px;
+    width: 0;
+    height: 0;
+    /* border-color: transparent #7304f2 transparent transparent; */
+    border-style: solid;
+    border-width: 12px 12px 12px 0;        
+}
+  
+.tag a:after {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 1px;
+    float: left;
+    width: 5px;
+    height: 5px;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    background: #fff;
+    -webkit-box-shadow: -1px -1px 2px rgba(0,0,0,0.4);
+    box-shadow: -1px -1px 2px rgba(0,0,0,0.4);
+}
+
+.btn-project{
+    color: white; 
+    background-color: #004b04;
+}
+
+.btn-project:hover{
+    color: #004b04;
+    background-color: white;  
+    box-shadow: 3px 5px 5px #5a6b5b;
+    transition: all 0.8s ease-out;  
+}
+
+/* Media Queries */
+@media screen and (width <= 700px){
+    .flip-card-front{
+        width: 300px !important;
+        height: 500px !important;
+    }
+
+    .card-content{
+        height: 250px! important;
+    }
+
+    .container-img-skill-card{
+        height: 250px !important;
+    }
+
+    .button-blue{
+        height: 40px;
+    }
+    
+    .tags-card{
+        gap: 0.3rem !important;
+    }
+
+    .card-content-child{
+      gap: 1rem !important;  
+    }
+}
