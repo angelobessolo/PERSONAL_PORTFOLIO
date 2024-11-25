@@ -56,7 +56,7 @@ export class ExperienceComponent {
       frontCard: [
         // { label: 'CARGO:', icon: 'badge', description: 'Desarrollador Fullstack' },
         { label: 'EMPRESA:', icon: 'apartment', description: 'SkinaTech S.A.S' },
-        { label: 'PERIODO:', icon: 'date_range', description: '03/2024 - Actualidad' },
+        { label: 'PERIODO:', icon: 'date_range', description: '03/2024 - Actual' },
       ], 
       role: 'Desarrollador Fullstack',
       tags: {
