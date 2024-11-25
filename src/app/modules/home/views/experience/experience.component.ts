@@ -11,7 +11,6 @@ import { BreadCrumbComponent } from '../../../../shared/components/bread-crumb/b
   imports: [
     CardsComponent,
     CommonModule,
-    BreadCrumbComponent
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './experience.component.html',
@@ -36,16 +35,15 @@ export class ExperienceComponent {
         {
           title: 'FUNCIONES',
           items: [
-            'Durante mi tiempo en la empresa, me desempeñé en el análisis, desarrollo, soporte e implementación de nuevas funcionalidades para el sistema de la compañía, que era utilizado por nuestros clientes.',
-            'Trabajé bajo la metodología ágil Scrum, colaborando en la entrega continua de mejoras y actualizaciones del producto. Utilicé herramientas clave como Db2 para la gestión y administración de bases de datos, así como el entorno COBOL en AS/400, incluyendo los formatos CBL, CBLLE, SQLCBLLE, CL y SDA.',
-            'Además, me apoyé en todo el conjunto de herramientas ofrecidas por IBM para la integración de sistemas, con un enfoque en la optimización de procesos y la mejora del core bancario.'
+            'Durante mi trayectoria en la empresa, participé activamente en el análisis, desarrollo, soporte e implementación de nuevas funcionalidades para el sistema corporativo, optimizando su uso y asegurando su efectividad para nuestros clientes.',
+            'Desempeñé mis funciones siguiendo la metodología ágil Scrum, colaborando en la entrega continua de mejoras y actualizaciones del producto. Mi trabajo incluyó el uso de herramientas avanzadas como Db2 para la gestión y administración de bases de datos, así como el desarrollo en el entorno COBOL sobre AS/400, abarcando formatos como CBL, CBLLE, SQLCBLLE, CL y SDA.',
           ]
         },
         {
           title: 'LOGROS',
           items: [
-            'AdquirÍ los conocimientos necesarios en un periodo de 3 meses relacionados con programación COBOL destacando dentro del equipo como uno de los mas.',
-            'AAbstraert del core bancario y los arquitectos conociemiento y logica del sector bancario',
+            'Adquirí sólidos conocimientos en programación COBOL en un período de tres meses, lo que me permitió integrarme rápidamente al equipo y contribuir de manera efectiva a los proyectos asignados.',
+            'Logré abstraer del core bancario, junto con los arquitectos, conocimientos y lógica clave del sector bancario, consolidando mi comprensión del negocio.',
           ]
         },
       ]
@@ -67,17 +65,17 @@ export class ExperienceComponent {
         {
           title: 'FUNCIONES',
           items: [
-            'Analisis, desarrollo, soporte e implementación de funcionalidades para el aplicativo insignia de la compañia llamado ORFEO NG',
-            'Mantenimiento y ajustes de issues existentes en el software.',
-            'Control y versionaminto de codigo mediante Gitlab.',
-            'Actualización y paso a producción de cambios en servidor del cliente.',
+            'Análisis, desarrollo, soporte e implementación de funcionalidades para el aplicativo principal de la compañía, ORFEO NG.',
+            'Mantenimiento y resolución de issues en el software.',
+            'Gestión de control y versionamiento de código mediante GitLab.',
+            'Actualización y despliegue de cambios en producción en los servidores del cliente.',
           ]
         },
         {
           title: 'LOGROS',
           items: [
-            'Durante un largo tiempo estuve capacitandome en tecnologias como Angular la cual gracias a la oportunidad de la compañia pude poner en practica todo lo adquirido de forma autonoma y tambien pude aprender nuevos conceptos por parte de los ingenieros.',
-            'Desarrollar una funcionalidad para un cliente en la cual pude trabajar de la mano con tecnologias como Yii2 y php para enrutamiento, creación de vistas e integración con basses de datos mysql.',
+            'Me capacité de manera continua en tecnologías como Angular, aplicando los conocimientos adquiridos de forma autónoma y aprendiendo nuevos conceptos con el apoyo de los ingenieros de la compañía.',
+            'Desarrollé una funcionalidad para un cliente, utilizando tecnologías como Yii2 y PHP para el enrutamiento, creación de vistas e integración con bases de datos MySQL.',
           ]
         }
       ]
