@@ -23,9 +23,10 @@
             <p>{{cardJob.tags.main}}</p>
             <div class="tags-card d-flex flex-wrap justify-content-center align-items-center" style="gap: 1rem; margin-left: 16px; position: absolute; bottom: 20px;">
               @for (tag of cardJob.tags.arraytags; track $index) {  
-                <a href="#" class="tag" 
-                [style.background-color]="getRandomColor()"
-                >{{tag}}</a>
+                <span href="#" class="tag" 
+                  [style.background-color]="getRandomColor()"
+                  >{{tag}}
+                </span>
               }
             </div>
           </div>

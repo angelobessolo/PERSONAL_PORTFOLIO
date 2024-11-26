@@ -1,9 +1,10 @@
-import {ChangeDetectionStrategy, Component, signal} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, OnInit, signal} from '@angular/core';
 import {provideNativeDateAdapter} from '@angular/material/core';
 import { CardsComponent } from '../../../../shared/components/cards/cards.component';
 import { CardJob } from '../../../../shared/interfaces/card-job.interface';
 import { CommonModule } from '@angular/common';
 import { BreadCrumbComponent } from '../../../../shared/components/bread-crumb/bread-crumb.component';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-experience',
@@ -11,12 +12,16 @@ import { BreadCrumbComponent } from '../../../../shared/components/bread-crumb/b
   imports: [
     CardsComponent,
     CommonModule,
+    TranslateModule
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './experience.component.html',
   styleUrl: './experience.component.css'
 })
-export class ExperienceComponent {
+export class ExperienceComponent implements OnInit{
+  private translate = inject(TranslateService);
+  private cdRef = inject(ChangeDetectorRef);
+
   cardJob: CardJob[] = [
     {
       primaryPathImage: '/assets/images/cobol.jpg',
@@ -81,4 +86,40 @@ export class ExperienceComponent {
       ]
     },
   ]
+
+  ngOnInit(): void {
+    const defaultLanguage = typeof window !== 'undefined' && localStorage.getItem('language') || 'es';
+    this.translate.setDefaultLang(defaultLanguage);
+    this.translate.use(defaultLanguage);
+    this.translateValues(); // Traducir valores
+
+    // Escuchar cambios de idioma
+    this.translate.onLangChange.subscribe(() => {
+      this.reloadComponent(); // Recargar componente cuando el idioma cambie
+    });
+  }
+
+  // Método para traducir los valores del array cardJob
+  translateValues() {
+    this.cardJob = this.cardJob.map(job => {
+      return {
+        ...job,
+        frontCard: job.frontCard.map(item => ({
+          label: this.translate.instant(item.label), // Traducir las etiquetas
+          icon: item.icon,
+          description: item.description, // Suponiendo que no necesitas traducir las descripciones
+        })),
+        backCard: job.backCard.map(section => ({
+          title: this.translate.instant(section.title), // Traducir los títulos de las secciones
+          items: section.items.map(item => this.translate.instant(item)), // Traducir los ítems de cada sección
+        }))
+      };
+    });
+
+    this.cdRef.detectChanges();  // Forzar la actualización de la vista
+  }
+
+  reloadComponent(): void {
+    this.ngOnInit()
+  }
 }

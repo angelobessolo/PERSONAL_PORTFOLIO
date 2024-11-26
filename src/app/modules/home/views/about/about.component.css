@@ -1,0 +1,27 @@
+/* .typing-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .typing {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: #fff;
+    white-space: pre-wrap; 
+    overflow: hidden;
+  }
+   */
+
+button{
+  background-color: #004b04;
+  color: white;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  background-color: white;
+  color: #004b04;
+  transform: translateY(-5px);
+}

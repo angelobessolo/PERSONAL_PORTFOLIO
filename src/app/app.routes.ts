@@ -38,6 +38,15 @@ export const routes: Routes = [
                     icon: 'sports_score', 
                 },
             },
+            {
+                path: 'about-me',
+                // canActivate: [isNotAuthenticatedGuard],
+                loadComponent: () => import('./modules/home/views/about/about.component').then( c => c.AboutComponent),
+                data: { 
+                    titulo: 'Acerca de mi',
+                    icon: 'person', 
+                },
+            },
         ]
     },
     {

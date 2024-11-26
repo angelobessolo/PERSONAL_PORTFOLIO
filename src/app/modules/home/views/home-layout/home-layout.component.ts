@@ -10,6 +10,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSidenav, MatSidenavModule} from '@angular/material/sidenav';
 import { MatMenuModule } from '@angular/material/menu';
 import { Language } from '../../../../shared/interfaces/language.interface';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-home-layout',
@@ -25,7 +26,8 @@ import { Language } from '../../../../shared/interfaces/language.interface';
     MatMenuModule,
     MatSelectModule,
     ToolbarComponent,
-    BreadCrumbComponent
+    BreadCrumbComponent,
+    TranslateModule
 ],
   templateUrl: './home-layout.component.html',
   styleUrl: './home-layout.component.css'
@@ -33,6 +35,9 @@ import { Language } from '../../../../shared/interfaces/language.interface';
 export class HomeLayoutComponent implements OnInit{
 
   private router = inject(Router);
+  private translate = inject(TranslateService);
+
+
   stars: Array<{ left: string, animationDelay: string, size: string }> = [];
 
   sidenavStatus: boolean = false;
@@ -43,12 +48,12 @@ export class HomeLayoutComponent implements OnInit{
   lenguages: Language[] = [
     {
       code: 'en',
-      name: 'English',
+      name: 'En',
       flag: '/assets/icons/usa_flg.png'
     },
     {
       code: 'es',
-      name: 'Spanish',
+      name: 'Es',
       flag: '/assets/icons/spain_flg.png'
     },
   ];
@@ -58,6 +63,7 @@ export class HomeLayoutComponent implements OnInit{
 
   ngOnInit(): void {
     // this.createStars();
+    this.detectLanguage();
     this.router.navigateByUrl('home/main');
   }
 
@@ -88,12 +94,13 @@ export class HomeLayoutComponent implements OnInit{
   openCloseSidenav(status: boolean) {
     this.sidenavStatus = status;  // Actualizar el estado con el valor recibido
     this.drawer!.toggle();
-    console.log('Estado del sidenav:', this.sidenavStatus ? 'Abierto' : 'Cerrado');
   }
 
   // Cambiar el idioma
-  changeLanguage(language: Language) {
-    this.selectedLanguage = language;
+  detectLanguage(){
+    const defaultLanguage = typeof window !== 'undefined' && localStorage.getItem('language') || 'es';
+    this.translate.setDefaultLang(defaultLanguage);
+    this.translate.use(defaultLanguage);
   }
 
 }

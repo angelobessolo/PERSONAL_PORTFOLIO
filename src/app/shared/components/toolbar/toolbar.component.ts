@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Inject, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Inject, OnInit, Output } from '@angular/core';
 import { MatIconModule} from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -8,6 +8,7 @@ import { Language } from '../../interfaces/language.interface';
 import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-toolbar',
@@ -21,7 +22,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     MatSidenavModule, 
     MatFormFieldModule, 
     MatSelectModule, 
-    MatIconModule
+    MatIconModule,
+    TranslateModule
   ],
   templateUrl: './toolbar.component.html',
   styleUrl: './toolbar.component.css'
@@ -33,12 +35,12 @@ export class ToolbarComponent implements OnInit {
   lenguages: Language[] = [
     {
       code: 'en',
-      name: 'English',
+      name: 'En',
       flag: '/assets/icons/usa_flg.png'
     },
     {
       code: 'es',
-      name: 'Spanish',
+      name: 'Es',
       flag: '/assets/icons/spain_flg.png'
     },
   ];
@@ -49,8 +51,7 @@ export class ToolbarComponent implements OnInit {
   @Output() openCloseSidenav = new EventEmitter<boolean>();
   isOpen = false;
 
-  constructor(
-  ) {}
+  translate = inject(TranslateService);
 
   ngOnInit(): void {
     this.selectedLanguage = this.lenguages[1]; // Por defecto seleccionamos el primer idioma (English)
@@ -75,6 +76,8 @@ export class ToolbarComponent implements OnInit {
   // Cambiar el idioma
   changeLanguage(language: Language) {
     this.selectedLanguage = language;
+    localStorage.setItem('language', this.selectedLanguage.code);
+    this.translate.use(this.selectedLanguage.code);
   }
 
   // Método para cambiar el estado y emitir el valor

@@ -107,7 +107,7 @@
    
 
   
-a:after {
+span:after {
     content: "";
     position: absolute;
     top: 10px;

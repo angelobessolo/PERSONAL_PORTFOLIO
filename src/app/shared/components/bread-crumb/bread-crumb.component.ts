@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectorRef, Component } from '@angular/core';
+import { ChangeDetectorRef, Component, inject } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { ActivatedRoute, ActivationEnd, NavigationEnd, Router, RouterModule } from '@angular/router';
 import { Breadcrumb } from '../../interfaces/breadcrumb-interfaces';
 import { filter, map, Subscription } from 'rxjs';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-bread-crumb',
@@ -11,12 +12,15 @@ import { filter, map, Subscription } from 'rxjs';
   imports: [
     RouterModule,
     MatIconModule,
-    CommonModule 
+    CommonModule,
+    TranslateModule
   ],
   templateUrl: './bread-crumb.component.html',
   styleUrl: './bread-crumb.component.css'
 })
 export class BreadCrumbComponent {
+  private translate = inject(TranslateService);
+  
   public titulo: string = '';
   public icon: string = '';
   public tituloSubs$: Subscription | null = null;
