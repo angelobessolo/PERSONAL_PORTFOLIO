@@ -9,6 +9,7 @@ export interface FloatButton {
 export interface Action {
     action?: string;
     icon?: string;
+    url?: string;
     label?: string;
     color?: string;
 }

@@ -31,17 +31,20 @@ export class MainComponent  implements OnInit {
     color: '#004b04',
     subActions: [
       { action: 'experience', 
-        icon: 'work', 
+        icon: 'work',
+        url: 'home/experience',
         label: 'Experiencia', 
         color: '#004b04' 
       },
       { action: 'projects', 
         icon: 'sports_score', 
+        url: 'home/projects',
         label: 'Proyectos', 
         color: '#004b04' 
       },
       { action: 'about-me', 
         icon: 'person', 
+        url: 'home/about-me',
         label: 'Acerca de mi', 
         color: '#004b04' 
       },
@@ -92,43 +95,18 @@ export class MainComponent  implements OnInit {
 
   eventAction(event: any){
     console.log(event);
-    // switch (event.action){
-    //   case 'delete':
-    //     this.spinner.show();
-    //     setTimeout(() => {
-    //       this.configurationService.deleteCompany(this.rowCompany).subscribe({
-    //         next: (response: any) => {
-    //           if(response.statusCode === 200){
-    //             this.spinner.hide();
-  
-    //             const title = 'Eliminacion Responsable';
-    //             const message = response.message;
-    //             this.toastr.showSucces(title, message);
+    switch (event.action){
+      case 'about-me':
+        this.router.navigateByUrl(event.url);
+      break; 
 
-    //             this.rowCompany = [];
+      case 'projects':
+        this.router.navigateByUrl(event.url);
+      break;
 
-    //             this.reloadList();
-
-    //             this.showButton = false;
-    //           }   
-    //         },
-    //         error: err => {
-    //           this.spinner.hide();
-  
-    //           const title = 'Eliminacion Empresa';
-    //           const message = err.error.error;
-    //           this.toastr.showSucces(title, message);
-    //         }
-    //       });
-    //     }, 
-    //     1000
-    //     );
-
-    //   break; 
-
-    //   case 'view':
-    //     this.viewCompany(this.rowCompany);
-    //   break;
-    // }
+      case 'experience':
+        this.router.navigateByUrl(event.url);
+      break;
+    }
   }
 }
