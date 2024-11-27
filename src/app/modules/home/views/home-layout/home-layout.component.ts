@@ -1,7 +1,7 @@
 import { Component, ElementRef, inject, Inject, OnInit, ViewChild } from '@angular/core';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
-import { Router, RouterModule } from '@angular/router';
+import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { ToolbarComponent } from "../../../../shared/components/toolbar/toolbar.component";
 import { BreadCrumbComponent } from "../../../../shared/components/bread-crumb/bread-crumb.component";
 import {MatButtonModule} from '@angular/material/button';
@@ -11,6 +11,7 @@ import {MatSidenav, MatSidenavModule} from '@angular/material/sidenav';
 import { MatMenuModule } from '@angular/material/menu';
 import { Language } from '../../../../shared/interfaces/language.interface';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-home-layout',
@@ -61,8 +62,22 @@ export class HomeLayoutComponent implements OnInit{
   // Idioma seleccionado por defecto
   selectedLanguage!: Language; // Por defecto seleccionamos el primer idioma (English)
 
+  showBredcrumb: boolean = true;
+
   ngOnInit(): void {
     // this.createStars();
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe(() => {
+        const currentRoute = this.router.url;
+        if (currentRoute === 'home/main'){
+          this.showBredcrumb = false;
+        } else{
+          this.showBredcrumb = true;
+        }
+
+      });
+      
     this.detectLanguage();
     this.router.navigateByUrl('home/main');
   }
@@ -101,6 +116,11 @@ export class HomeLayoutComponent implements OnInit{
     const defaultLanguage = typeof window !== 'undefined' && localStorage.getItem('language') || 'es';
     this.translate.setDefaultLang(defaultLanguage);
     this.translate.use(defaultLanguage);
+  }
+
+  eventAction(event: any){
+    // console.log('data del breadcrumb', event);
+    event === 'home/main' ? this.showBredcrumb = false: this.showBredcrumb = true;
   }
 
 }

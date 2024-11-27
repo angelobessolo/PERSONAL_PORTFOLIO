@@ -52,7 +52,9 @@
     <mat-drawer-content>
       <div>
         <app-toolbar (openCloseSidenav)="openCloseSidenav($event)"></app-toolbar>
-        <app-bread-crumb></app-bread-crumb>
+        @if(showBredcrumb){
+          <app-bread-crumb (eventAction) ="eventAction($event)"></app-bread-crumb>
+        }
       </div>
     
       <div>

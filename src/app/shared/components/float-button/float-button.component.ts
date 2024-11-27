@@ -25,19 +25,7 @@ export class FloatButtonComponent {
 
 
   ngOnInit(): void {
-    console.log(this.buttonActions);
-  }
-  
-  addTransaction(): void {
-    console.log('Agregar transacción');
-  }
-
-  modifyTransaction(): void {
-    console.log('Modificar transacción');
-  }
-
-  deleteTransaction(): void {
-    console.log('Eliminar transacción');
+    // console.log(this.buttonActions);
   }
 
   clickMenu(){
@@ -72,7 +60,7 @@ export class FloatButtonComponent {
   }
 
   emitAction(action: FloatButton) {
-    console.log('Emitiendo acción:', action);
+    // console.log('Emitiendo acción:', action);
     this.eventAction.emit(action);
   }
 }

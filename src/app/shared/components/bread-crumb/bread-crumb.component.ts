@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectorRef, Component, inject } from '@angular/core';
+import { ChangeDetectorRef, Component, inject, output } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { ActivatedRoute, ActivationEnd, NavigationEnd, Router, RouterModule } from '@angular/router';
 import { Breadcrumb } from '../../interfaces/breadcrumb-interfaces';
@@ -26,6 +26,7 @@ export class BreadCrumbComponent {
   public tituloSubs$: Subscription | null = null;
   public breadcrumbs: Breadcrumb[] = [];
   showBreadCrumb: boolean = true;
+  eventAction = output<any>(); 
 
   constructor(private router: Router, private route: ActivatedRoute, private cdref: ChangeDetectorRef) {}
 
@@ -94,6 +95,8 @@ export class BreadCrumbComponent {
       // Asegura que los breadcrumbs se actualicen después de la navegación
       this.breadcrumbs = this.createBreadcrumbs(this.router.routerState.root);
     });
+
+    this.eventAction.emit(item);
   }
 
   reload(){
