@@ -62,7 +62,7 @@ export class HomeLayoutComponent implements OnInit{
   // Idioma seleccionado por defecto
   selectedLanguage!: Language; // Por defecto seleccionamos el primer idioma (English)
 
-  showBredcrumb: boolean = true;
+  showBredcrumb: boolean = false;
 
   ngOnInit(): void {
     // this.createStars();
