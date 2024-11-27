@@ -28,25 +28,25 @@ export class MainComponent  implements OnInit {
     action: 'none',
     icon: 'add',
     label: '',
-    color: '#004b04',
+    color: '#ff9800',
     subActions: [
       { action: 'experience', 
         icon: 'work',
         url: 'home/experience',
         label: 'Experiencia', 
-        color: '#004b04' 
+        color: '#ff9800' 
       },
       { action: 'projects', 
         icon: 'sports_score', 
         url: 'home/projects',
         label: 'Proyectos', 
-        color: '#004b04' 
+        color: '#ff9800' 
       },
       { action: 'about-me', 
         icon: 'person', 
         url: 'home/about-me',
         label: 'Acerca de mi', 
-        color: '#004b04' 
+        color: '#ff9800' 
       },
     ]
   };
