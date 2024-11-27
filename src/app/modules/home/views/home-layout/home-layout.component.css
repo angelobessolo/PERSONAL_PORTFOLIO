@@ -38,6 +38,8 @@
 
 mat-drawer{
     overflow: hidden !important;
+    border-top-right-radius: 32px;
+    border-bottom-right-radius: 32px;
 }
   
 /* Animación para que las estrellas caigan */

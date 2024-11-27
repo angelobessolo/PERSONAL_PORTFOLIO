@@ -15,7 +15,7 @@
       <section class="intro-container intro-animated">
           <h1 class="animate-charcter">{{'titleName' | translate}}</h1>
           <p style="color: white;">{{'subTitle' | translate}}</p>
-          <div class="d-flex gap-2 flex-wrap">
+          <div class="d-none d-md-flex d-flex gap-2 flex-wrap">
             <a routerLink="/home/about-me" routerLinkActive="router-link-active"  class="btn-next gap-2">{{'aboutMe' | translate}}<mat-icon>arrow_forward</mat-icon></a>
             <a routerLink="/home/projects" routerLinkActive="router-link-active"  class="btn-next gap-2">{{'projects' | translate}}<mat-icon>arrow_forward</mat-icon></a>
             <a routerLink="/home/experience" routerLinkActive="router-link-active"  class="btn-next gap-2">{{'experience' | translate}}<mat-icon>arrow_forward</mat-icon></a>
@@ -29,3 +29,5 @@
     
   </div>
 </div>
+
+<app-float-button class="d-md-none d-flex" [buttonActions]="buttonActions" (eventAction) ="eventAction($event)"></app-float-button>
