@@ -34,7 +34,7 @@ export class CardsComponent implements OnInit {
   }
 
   rotateCard(){
-    // this.isRotated = !this.isRotated;
+    this.isRotated = !this.isRotated;
   }
 
 }
