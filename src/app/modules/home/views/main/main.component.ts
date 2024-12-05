@@ -28,25 +28,25 @@ export class MainComponent  implements OnInit {
     action: 'none',
     icon: 'add',
     label: '',
-    color: '#ff9800',
+    color: 'linear-gradient(-225deg, rgba(0,75,4,1) 5%, rgba(255,248,0,1) 90%)',
     subActions: [
       { action: 'experience', 
         icon: 'work',
         url: 'home/experience',
         label: 'Experiencia', 
-        color: '#ff9800' 
+        color: 'linear-gradient(-225deg, rgba(0,75,4,1) 5%, rgba(255,248,0,1) 90%)' 
       },
       { action: 'projects', 
         icon: 'sports_score', 
         url: 'home/projects',
         label: 'Proyectos', 
-        color: '#ff9800' 
+        color: 'linear-gradient(-225deg, rgba(0,75,4,1) 5%, rgba(255,248,0,1) 90%)' 
       },
       { action: 'about-me', 
         icon: 'person', 
         url: 'home/about-me',
         label: 'Acerca de mi', 
-        color: '#ff9800' 
+        color: 'linear-gradient(-225deg, rgba(0,75,4,1) 5%, rgba(255,248,0,1) 90%)' 
       },
     ]
   };

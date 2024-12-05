@@ -15,7 +15,7 @@
         
         @if(openMenu){
             @if(buttonActions.label != ''){
-                <span mat-raised-button class="label" [style.background-color]= "buttonActions.color">
+                <span mat-raised-button class="label" [style.background]= "buttonActions.color">
                     {{buttonActions.label}}
                 </span>
             }
@@ -27,12 +27,12 @@
         <div class="d-flex flex-column">
             @for (subActions of buttonActions.subActions; track $index) {
                 <div>
-                    <button mat-mini-fab class="action-button" [style.background-color]= "buttonActions.color" [ngStyle]="getButtonStyles($index)" (click)="emitAction(subActions)">
+                    <button mat-mini-fab class="action-button" [style.background]= "buttonActions.color" [ngStyle]="getButtonStyles($index)" (click)="emitAction(subActions)">
                         <mat-icon>{{subActions.icon}}</mat-icon>
                     </button>
                     
                     @if(openMenu){
-                        <span mat-raised-button class="label" [style.background-color]= "subActions.color" [ngStyle]="getLabelStyles($index)">
+                        <span mat-raised-button class="label" [style.background]= "subActions.color" [ngStyle]="getLabelStyles($index)">
                             {{subActions.label}}
                         </span>
                     }
