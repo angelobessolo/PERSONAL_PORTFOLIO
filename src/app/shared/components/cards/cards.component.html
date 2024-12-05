@@ -45,8 +45,11 @@
   
       <div class="flip-card-back p-2 parent-div" style="border-radius: 16px;">
         <div style="border: 4px solid #0564b1; border-radius: 16px; height: 100%; overflow-y: auto; scrollbar-width: none; padding: 1rem;">
+          <button mat-flat-button color="primary" style="position: absolute; top: 1rem; right: 1rem;" (click)="rotateCard()">
+            Volver
+          </button>
           @for (item of cardJob.backCard; track $index) {
-            <P>{{item.title}}</P>
+            <P class="mt-1">{{item.title}}</P>
   
             <!-- <ol style="text-decoration: none;">
               @for (it of item.items; track $index) {
