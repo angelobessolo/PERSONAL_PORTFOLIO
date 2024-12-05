@@ -32,7 +32,7 @@
 }
 
 .personalize-class{
-    transform: rotateY(180deg);
+    transform: rotateY(180deg) !important;
 }
   
 /* Position the front and back side */
