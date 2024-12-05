@@ -31,7 +31,7 @@
     transform: rotateY(180deg);
 }
 
-.personalize-class{
+.personalize-class .flip-card-inner{
     transform: rotateY(180deg) !important;
 }
   
