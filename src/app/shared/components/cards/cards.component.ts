@@ -18,7 +18,7 @@ import { MatButtonModule } from '@angular/material/button';
 export class CardsComponent implements OnInit { 
 
   @Input() cardJob!: CardJob;
-  isRotated = false;
+  disableHover = false;
 
   ngOnInit() {
 
@@ -34,7 +34,7 @@ export class CardsComponent implements OnInit {
   }
 
   rotateCard(){
-    this.isRotated = !this.isRotated;
+    this.disableHover = !this.disableHover;
   }
 
 }
