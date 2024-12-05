@@ -1,7 +1,7 @@
-<div class="flip-card" style="border-radius: 16px; cursor: pointer;">
+<div class="flip-card" style="border-radius: 16px; cursor: pointer;" [ngClass]="{'personalize-class': isRotated}">
     <div class="flip-card-inner" style="border-radius: 16px;">
      
-      <div class="flip-card-front" style="border-radius: 16px;">
+      <div class="flip-card-front" style="border-radius: 16px;" [ngClass]="{'personalize-class': isRotated}">
         <!-- Imagen background card -->
         <div class="container-img-skill-card" [ngStyle]="{'background-image': 'url(' + cardJob.primaryPathImage + ')'}" style="border-top-left-radius: 16px; border-top-right-radius: 16px;">
         </div>
@@ -30,6 +30,11 @@
               }
             </div>
           </div>
+
+          <button mat-fab extended style="position: absolute; top: .5rem; right: .5rem;" (click)="rotateCard()">
+            <mat-icon>cached</mat-icon>
+            Ver más...
+          </button>
           
         </div>
   

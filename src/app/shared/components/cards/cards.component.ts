@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { CardJob } from '../../interfaces/card-job.interface';
 import { CommonModule } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-cards',
@@ -9,6 +10,7 @@ import { CommonModule } from '@angular/common';
   imports: [
     CommonModule,
     MatIconModule,
+    MatButtonModule
   ],
   templateUrl: './cards.component.html',
   styleUrl: './cards.component.css'
@@ -16,6 +18,7 @@ import { CommonModule } from '@angular/common';
 export class CardsComponent implements OnInit { 
 
   @Input() cardJob!: CardJob;
+  isRotated = false;
 
   ngOnInit() {
 
@@ -28,6 +31,10 @@ export class CardsComponent implements OnInit {
       color += letters[Math.floor(Math.random() * letters.length)];
     }
     return color;
+  }
+
+  rotateCard(){
+    this.isRotated = !this.isRotated;
   }
 
 }
