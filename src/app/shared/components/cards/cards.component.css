@@ -32,8 +32,8 @@
 }
 
 /* Clase para deshabilitar el hover */
-.no-hover .flip-card:hover .flip-card-inner {
-    transform: none; /* Sin transformación */
+.personalize-class .flip-card-inner{
+    transform: rotateY(360deg) !important;
 }
   
 /* Position the front and back side */
