@@ -32,6 +32,10 @@ export class BreadCrumbComponent {
 
   ngOnInit(): void {
     this.reload();
+    if  (this.breadcrumbs.length === 0) {
+      this.breadcrumbs = this.createBreadcrumbs(this.router.routerState.root);
+    }
+    
   }
 
   ngOnDestroy(): void {

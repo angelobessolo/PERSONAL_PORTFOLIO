@@ -1,4 +1,4 @@
-import { Component, ElementRef, inject, Inject, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, inject, Inject, OnInit, ViewChild } from '@angular/core';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
@@ -11,7 +11,7 @@ import {MatSidenav, MatSidenavModule} from '@angular/material/sidenav';
 import { MatMenuModule } from '@angular/material/menu';
 import { Language } from '../../../../shared/interfaces/language.interface';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { filter } from 'rxjs';
+import { BehaviorSubject, filter } from 'rxjs';
 
 @Component({
   selector: 'app-home-layout',
@@ -29,7 +29,8 @@ import { filter } from 'rxjs';
     ToolbarComponent,
     BreadCrumbComponent,
     TranslateModule
-],
+  ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './home-layout.component.html',
   styleUrl: './home-layout.component.css'
 })
@@ -64,6 +65,12 @@ export class HomeLayoutComponent implements OnInit{
 
   showBredcrumb: boolean = false;
 
+  showBredcrumb$ = new BehaviorSubject<boolean>(true);
+
+  constructor(
+    private ref: ChangeDetectorRef,
+  ){}
+
   ngOnInit(): void {
     // this.createStars();
     this.router.events
@@ -76,6 +83,7 @@ export class HomeLayoutComponent implements OnInit{
           this.showBredcrumb = true;
         }
 
+        this.ref.detectChanges();
       });
       
     this.detectLanguage();
@@ -119,7 +127,6 @@ export class HomeLayoutComponent implements OnInit{
   }
 
   eventAction(event: any){
-    // console.log('data del breadcrumb', event);
     event === 'home/main' ? this.showBredcrumb = false: this.showBredcrumb = true;
   }
 
