@@ -170,7 +170,7 @@
 /* Media Queries */
 @media screen and (width <= 700px){
     .flip-card-front{
-        width: 350px !important;
+        width: 330px !important;
         height: 550px !important;
     }
 
