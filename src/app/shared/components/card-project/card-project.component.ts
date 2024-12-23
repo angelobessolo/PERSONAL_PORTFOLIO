@@ -4,6 +4,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { ProjectCard } from '../../interfaces/project-card.interface';
 import { Router } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
+import { StatusProjectText, StatusProjectColor  } from '../../enums/status-project.enum';
 
 @Component({
   selector: 'app-card-project',
@@ -19,11 +20,15 @@ import { MatButtonModule } from '@angular/material/button';
 export class CardProjectComponent  implements AfterViewInit{
   @Input() projectCard!: ProjectCard;
   private router = inject(Router);
-  @ViewChild('videoPlayer') videoPlayer!: ElementRef<HTMLVideoElement>;
+  // @ViewChild('videoPlayer') videoPlayer!: ElementRef<HTMLVideoElement>;
+  @ViewChild('videoPlayer', { static: false }) videoPlayer!: ElementRef<HTMLVideoElement>;
 
   backgroundColor: string = '#165615';
   tagColors: string[] = [];
 
+  StatusProjectText: any = StatusProjectText;
+  StatusProjectColor: any = StatusProjectColor;
+  
   constructor(private cdr: ChangeDetectorRef) {}
 
   ngOnInit() {
@@ -40,7 +45,9 @@ export class CardProjectComponent  implements AfterViewInit{
     const videoElement = this.videoPlayer.nativeElement;
 
     // Pausar video por defecto
-    videoElement.pause();
+    // videoElement.pause();
+
+    
 
     // Reproducir el video cuando se pasa el mouse sobre él
     videoElement.addEventListener('mouseover', () => {

@@ -13,7 +13,15 @@
     <div class="card-content" style="height: 250px; padding: 1rem;">
         <div style="text-align: left;">            
             <div class="d-flex justify-content-between align-items-center mb-2">
-                <p style="font-weight: 500; margin: 0; padding: 0;">{{projectCard.projectName}}</p> 
+                <div class="d-flex flex-column">
+                    <p style="font-weight: 500; margin: 0; padding: 0;">{{projectCard.projectName}}</p>
+                    <p style="font-weight: 500; margin: 0; padding: 0;">
+                        Estatus: 
+                        <span [style.background-color]="StatusProjectColor[projectCard.status]"  style="color: white; padding: 8px; border-radius: 16px;">
+                            {{ StatusProjectText[projectCard.status] }}
+                        </span>
+                    </p> 
+                </div>
                 <a routerLink="#" class="btn-project" mat-button  routerLinkActive="router-link-active">
                     Visitar
                     <mat-icon>arrow_forward</mat-icon>
@@ -30,6 +38,7 @@
                 }
             </div> 
         </div>
+        
         
     </div>
 </div>

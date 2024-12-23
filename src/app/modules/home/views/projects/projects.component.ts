@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CardProjectComponent } from '../../../../shared/components/card-project/card-project.component';
 import { ProjectCard } from '../../../../shared/interfaces/project-card.interface';
+import { StatusProject } from '../../../../shared/enums/status-project.enum';
 
 @Component({
   selector: 'app-projects',
@@ -14,23 +15,25 @@ import { ProjectCard } from '../../../../shared/interfaces/project-card.interfac
 export class ProjectsComponent {
   Projects: ProjectCard[] = [
     {
-      videoPath: '/assets/videos/pruebas.mp4',
+      videoPath: '/assets/videos/shakti-video.mp4',
       projectName: 'SHAKTI',
-      projectDescription: 'SHAKTI es un aplicativo por medio del cual se puede gestionar dentro de una compañia todo el sistema de SST, ',
+      status: StatusProject.InProgress,
+      projectDescription: 'SHAKTI es un aplicativo para gestionar el sistema de SST en una compañía, optimizando procesos y cumpliendo con la normativa laboral vigente en Colombia.',
       projectUrl: '/assets/images/cobol.jpg',
       tags: {
         encabezado: 'Tecnologias Utilizadas',
-        tags: ['cobol', 'proyecto']
+        tags: ['Angular', 'Nest JS', 'PostgreSQL']
       }
     },
     {
-      videoPath: '/assets/videos/pruebas.mp4',
-      projectName: 'SHAKTI',
-      projectDescription: 'SHAKTI es un aplicativo por medio del cual se puede gestionar dentro de una compañia todo el sistema de SST,',
+      videoPath: '/assets/videos/cashup-video.mp4',
+      projectName: 'CASHUP',
+      status: StatusProject.InProgress,
+      projectDescription: 'CASHUP es un aplicativo para gestionar ingresos y egresos, facilitando el control y organización de gastos personales de manera personalizada y eficiente.',
       projectUrl: '/assets/images/cobol.jpg',
       tags: {
         encabezado: 'Tecnologias Utilizadas',
-        tags: ['cobol', 'proyecto']
+        tags: ['Angular', 'Nest JS', 'MongoDB']
       }
     },
   ]
