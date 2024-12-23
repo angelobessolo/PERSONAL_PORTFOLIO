@@ -6,7 +6,7 @@ export enum StatusProject {
 
 export enum StatusProjectText {
     ToDo = 'Por Hacer',
-    InProgress = 'En Progreso',
+    InProgress = 'En Curso',
     Done = 'Hecho'
 }
 
